@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Kasutaja loomis vorm</title>
+		<title><?php echo $page_title; ?></title>
 	</head>
 
 	<body>

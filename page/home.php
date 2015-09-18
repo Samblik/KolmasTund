@@ -1,4 +1,12 @@
 <?php
+
+	$page_title = "TOP KEK";
+	$file_name = "home.php";
+
+
+?>
+
+<?php
 	
 	require_once("../header.php");
 
