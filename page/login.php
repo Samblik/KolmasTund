@@ -14,8 +14,12 @@
 	$firstname_error ="";
 	$lastname_error ="";
 	$tel_error ="";
+	$logemail_error ="";
+	$logpassword_error ="";
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		
+		if( isset($_POST["creat"])){
 		
 		//echo "jah";
 		
@@ -59,6 +63,29 @@
 	}
 	
 	
+	}elseif( isset($_POST["login"])){
+		
+		
+		if(empty($_POST["email"])){
+		
+		$logemail_error = "See väli on kohustuslik ";
+		
+		
+	}
+	
+	if(empty($_POST["password"])){
+		
+		$logpassword_error = "See väli on kohustuslik ";
+		
+		
+	}
+		
+		
+		
+		
+		
+	}
+	
 		
 	}
 ?>
@@ -79,7 +106,16 @@
 			<input name="tel" type="tel" pattern="[0-9]{10}" placeholder="Telefoni number" required><?php  echo $tel_error; ?><br /><br />
 			<input type="text" placeholder="Amet"><br /><br />
 			<input name="password" type="password" placeholder="Password" pattern=".{8,16}" required title="8 kuni 16 märki"><?php  echo $password_error; ?><br /><br />
-			<input type="submit" value="Registreeru">
+			<input type="submit" value="Registreeru" name="creat">
+		</form>
+		
+		
+		<h1>Login</h1>
+		
+		<form action="login.php" method="post">
+			<input name="email" type="email" placeholder="E-post" > <?php echo $logemail_error; ?><br><br>
+			<input name="password" type="password" placeholder="Parool" > <?php echo $logpassword_error; ?> <br><br>
+			<input type="submit" value="Logi sisse" name="login"> <br><br>
 		</form>
 <?php
 	
